@@ -4,6 +4,7 @@ module.exports = {
 
   async rewrites() {
     return {
+      afterFiles: undefined,
       fallback: [
         {
           source: "/:path*",
