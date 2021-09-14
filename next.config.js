@@ -13,7 +13,7 @@ module.exports = {
       fallback: [
         {
           source: "/:path*",
-          destination: "https://vercel.com/:path*",
+          destination: "https://google.com/:path*",
           basePath: false,
           locale: false,
         },
