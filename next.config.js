@@ -4,19 +4,35 @@ module.exports = {
 
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "de"],
+    locales: ["en", "en-US", "en-CA"],
+    domains: [
+      {
+        domain: "united-states-rewrites-example.vercel.app",
+        defaultLocale: "en-US",
+        locales: ["en-US"],
+      },
+      {
+        domain: "canada-rewrites-example.vercel.app",
+        defaultLocale: "en-CA",
+        locales: ["en-CA"],
+      },
+    ],
   },
 
   async rewrites() {
-    return {
-      fallback: [
+    const domainToPath = (domain) => ({
+      has: [
         {
-          source: "/:path*",
-          destination: "https://google.com/:path*",
-          basePath: false,
-          locale: false,
+          type: "host",
+          value: `^${domain}-rewrites-example\\.vercel\\.app$`,
         },
       ],
+      source: "/",
+      destination: `/${domain}`,
+    });
+
+    return {
+      afterFiles: [domainToPath("united-states"), domainToPath("canada")],
     };
   },
 };
