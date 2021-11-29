@@ -5,7 +5,6 @@ module.exports = {
   i18n: {
     defaultLocale: "en",
     locales: ["en", "en-US", "en-CA"],
-    localeDetection: false,
     domains: [
       {
         domain: "united-states-rewrites-example.vercel.app",
