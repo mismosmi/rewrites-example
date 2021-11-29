@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>{window?.document.location.href}</h1>;
+  if (window) {
+    return <h1>{window?.document.location.href}</h1>;
+  }
+
+  return null;
 }
