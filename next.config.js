@@ -18,21 +18,4 @@ module.exports = {
       },
     ],
   },
-
-  async rewrites() {
-    const domainToPath = (domain) => ({
-      has: [
-        {
-          type: "host",
-          value: `^${domain}-rewrites-example\\.vercel\\.app$`,
-        },
-      ],
-      source: "/",
-      destination: `/${domain}`,
-    });
-
-    return {
-      afterFiles: [domainToPath("united-states"), domainToPath("canada")],
-    };
-  },
 };
